@@ -416,21 +416,32 @@ export default function HomePage() {
           flexDirection: 'column',
           flex: '1 1 300px'
         }}>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <h1 style={{
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <p style={{
               fontFamily: 'Ubuntu, sans-serif',
               fontStyle: 'normal',
               fontWeight: 500,
               fontSize: 'clamp(40px, 5vw, 72px)',
               lineHeight: '1.15',
-              color: '#3D3D3D'
+              color: '#3D3D3D',
+              margin: 0,
             }}>
               A pet do seu{' '}
               <span style={{ color: '#EA528B' }}>Pet!</span>
+            </p>
+            <h1 style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
+              fontWeight: 600,
+              margin: '6px 0 0',
+              color: '#EA528B',
+              letterSpacing: '0.01em',
+            }}>
+              Pet Shop &amp; Banho e Tosa em Betim, MG
             </h1>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', marginTop: '16px' }}>
-            <h2 style={{
+            <p style={{
               fontFamily: 'Poppins, sans-serif',
               fontSize: '1rem',
               fontWeight: 'normal',
@@ -440,7 +451,7 @@ export default function HomePage() {
             }}>
               Especialistas em cuidar do seu Pet com o que há de melhor de{' '}
               <strong>Banho e Tosa e PetShop em BETIM-MG</strong>.
-            </h2>
+            </p>
             <a href={WA_CONTACT} target="_blank" rel="noopener noreferrer" style={{ marginTop: '16px', marginBottom: '16px' }}>
               <button className="vpb-button" style={{ width: '100%', maxWidth: '327px' }}>
                 <WhatsAppIcon />
