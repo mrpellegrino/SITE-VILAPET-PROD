@@ -407,14 +407,13 @@ export default function HomePage() {
           priority
           style={{ width: '45%', minWidth: '300px', objectFit: 'cover', flex: '1 1 300px' }} />
         
-        <div style={{
+        <div className="hero-text-container" style={{
           width: '45%',
           minWidth: '300px',
           paddingTop: '2rem',
           paddingBottom: '2rem',
           display: 'flex',
           flexDirection: 'column',
-          marginLeft: '80px',
           flex: '1 1 300px'
         }}>
           <div style={{ display: 'flex', flexDirection: 'row' }}>

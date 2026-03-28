@@ -174,3 +174,14 @@ a {
   70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+
+.hero-text-container {
+  margin-left: 80px;
+}
+
+@media (max-width: 799px) {
+  .hero-text-container {
+    margin-left: 0;
+    padding: 0 1.5rem 2rem;
+  }
+}
