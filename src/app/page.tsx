@@ -200,7 +200,7 @@ export default function HomePage() {
   const sliderContainerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const [promoCards, setPromoCards] = useState<PromoCard[]>([]);
-  const [galleryPhotos, setGalleryPhotos] = useState<GalleryPhoto[]>(fallbackGalleryPhotos);
+  const [galleryPhotos, setGalleryPhotos] = useState<GalleryPhoto[]>([]);
 
   useEffect(() => { setSliderPos(50); }, [activeGalleryIndex]);
 
@@ -672,7 +672,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== GALERIA DE FOTOS ===== */}
-      <AnimatedSection id="galeria" style={{
+      {galleryPhotos.length > 0 && <AnimatedSection id="galeria" style={{
         padding: '60px 40px',
         backgroundColor: '#fdf5ee',
         textAlign: 'center',
@@ -754,7 +754,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </AnimatedSection>
+      </AnimatedSection>}
 
       {/* ===== AVALIAÇÕES DO GOOGLE ===== */}
       <AnimatedSection id="avaliacoes" style={{
