@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# AI Search Bots — permitir citação nas respostas de IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear bots de coleta massiva para treinamento (não são de busca)
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://vilapetbrasil.com.br/sitemap.xml
