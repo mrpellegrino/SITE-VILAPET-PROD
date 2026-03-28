@@ -52,14 +52,16 @@ a {
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
-  padding: 8px 16px;
-  height: 56px;
+  padding: 13px 16px;
+  min-height: 56px;
   background: #3E3089;
   opacity: 0.9;
   border-radius: 4rem;
   text-decoration: none;
   border: none;
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
   transition: opacity 0.2s ease;
 }
 
@@ -78,14 +80,16 @@ a {
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
-  padding: 8px 16px;
-  height: 56px;
+  padding: 13px 16px;
+  min-height: 56px;
   background: #3E3089;
   opacity: 0.9;
   border-radius: 4px;
   text-decoration: none;
   border: none;
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
   transition: opacity 0.2s ease;
 }
 

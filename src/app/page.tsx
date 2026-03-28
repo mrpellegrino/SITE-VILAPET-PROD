@@ -308,7 +308,7 @@ export default function HomePage() {
               <li key={id} style={{ marginRight: '50px' }}>
                   <button
                   onClick={() => scrollTo(id)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'PoppinsStrong, sans-serif', fontWeight: 400, fontSize: '20px', lineHeight: '27px', color: '#EA528B' }}>
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'PoppinsStrong, sans-serif', fontWeight: 400, fontSize: '20px', lineHeight: '27px', color: '#EA528B', whiteSpace: 'nowrap', overflow: 'hidden' }}>
                   
                     {label}
                   </button>
@@ -378,7 +378,7 @@ export default function HomePage() {
             <li key={id} style={{ marginTop: '32px' }}>
                   <button
                 onClick={() => scrollTo(id)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '18px', lineHeight: '27px', color: '#3E3089' }}>
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '18px', lineHeight: '27px', color: '#3E3089', whiteSpace: 'nowrap', overflow: 'hidden' }}>
                 
                     {label}
                   </button>
