@@ -301,6 +301,14 @@ export default async function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {/* Google Ads Global Site Tag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10855972679" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-10855972679');
+        `}} />
         {/* JSON-LD — LocalBusiness */}
         <script
           type="application/ld+json"
