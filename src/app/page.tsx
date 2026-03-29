@@ -203,13 +203,13 @@ export default async function HomePage() {
         }}
       >
         <Image
-          src="/assets/capa.webp"
+          src="/assets/caozinho_banho.png"
           alt="Foto de cachorro recebendo cuidados no Pet Shop Vila Pet Brasil em Betim"
           fill
           priority
           style={{
             objectFit: 'cover',
-            objectPosition: 'center right',
+            objectPosition: 'center',
             zIndex: 0,
           }}
         />
