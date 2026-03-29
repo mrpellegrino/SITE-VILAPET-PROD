@@ -194,38 +194,48 @@ export default async function HomePage() {
       <section
         id="chamada"
         style={{
+          position: 'relative',
           display: 'flex',
-          flexDirection: 'row-reverse',
-          justifyContent: 'space-between',
           alignItems: 'center',
           paddingTop: '7rem',
           minHeight: '100vh',
-          flexWrap: 'wrap',
+          overflow: 'hidden',
         }}
       >
         <Image
           src="/assets/capa.webp"
           alt="Foto de cachorro recebendo cuidados no Pet Shop Vila Pet Brasil em Betim"
-          width={800}
-          height={700}
+          fill
           priority
           style={{
-            width: '45%',
-            minWidth: '300px',
             objectFit: 'cover',
-            flex: '1 1 300px',
+            objectPosition: 'center right',
+            zIndex: 0,
+          }}
+        />
+        {/* Gradient overlay so text stays readable */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(to right, rgba(255,255,255,0.96) 40%, rgba(255,255,255,0.5) 65%, rgba(255,255,255,0) 85%)',
+            zIndex: 1,
           }}
         />
         <div
           className="hero-text-container"
           style={{
-            width: '45%',
+            position: 'relative',
+            zIndex: 2,
+            width: '50%',
             minWidth: '300px',
             paddingTop: '2rem',
             paddingBottom: '2rem',
+            paddingLeft: 'clamp(1.5rem, 5vw, 5rem)',
+            paddingRight: '2rem',
             display: 'flex',
             flexDirection: 'column',
-            flex: '1 1 300px',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column' }}>
