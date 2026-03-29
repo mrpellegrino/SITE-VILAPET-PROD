@@ -431,11 +431,12 @@ export default function HomePage() {
             </p>
             <h1 style={{
               fontFamily: 'Poppins, sans-serif',
-              fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
-              fontWeight: 600,
-              margin: '6px 0 0',
+              fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+              fontWeight: 700,
+              margin: '10px 0 0',
               color: '#EA528B',
               letterSpacing: '0.01em',
+              lineHeight: '1.3',
             }}>
               Pet Shop &amp; Banho e Tosa em Betim, MG
             </h1>
@@ -699,7 +700,7 @@ export default function HomePage() {
               <Image src={galleryPhotos[activeGalleryIndex].src} alt={galleryPhotos[activeGalleryIndex].alt} fill style={{ objectFit: 'cover' }} />
               {/* ANTES (esquerda) — clipado pela posição do slider */}
               <div style={{ position: 'absolute', inset: 0, clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
-                <Image src={galleryPhotos[activeGalleryIndex].beforeSrc!} alt="antes" fill style={{ objectFit: 'cover' }} />
+                <Image src={galleryPhotos[activeGalleryIndex].beforeSrc!} alt={`Antes — ${galleryPhotos[activeGalleryIndex].label}`} fill style={{ objectFit: 'cover' }} />
               </div>
               {/* Linha divisória */}
               <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${sliderPos}%`, width: '2px', background: '#fff', transform: 'translateX(-50%)', pointerEvents: 'none' }}>
