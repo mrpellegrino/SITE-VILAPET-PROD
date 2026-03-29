@@ -191,15 +191,6 @@ export default async function HomePage() {
       <Navbar />
 
       {/* ===== HERO SECTION ===== */}
-      {/* SVG clip-path definition for organic left edge */}
-      <svg width="0" height="0" style={{ position: 'absolute' }}>
-        <defs>
-          <clipPath id="organic-hero-clip" clipPathUnits="objectBoundingBox">
-            <path d="M 0.2,0 C 0.05,0.05 0,0.22 0,0.5 C 0,0.78 0.05,0.95 0.2,1 L 1,1 L 1,0 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
       <section
         id="chamada"
         style={{
@@ -210,31 +201,21 @@ export default async function HomePage() {
           paddingTop: '7rem',
           minHeight: '100vh',
           flexWrap: 'wrap',
-          overflow: 'hidden',
         }}
       >
-        <div
+        <Image
+          src="/assets/banho-cao.webp"
+          alt="Foto de cachorro recebendo cuidados no Pet Shop Vila Pet Brasil em Betim"
+          width={800}
+          height={700}
+          priority
           style={{
-            flex: '1 1 300px',
-            width: '55%',
+            width: '50%',
             minWidth: '300px',
-            position: 'relative',
-            alignSelf: 'stretch',
-            minHeight: '500px',
-            clipPath: 'url(#organic-hero-clip)',
+            objectFit: 'contain',
+            flex: '1 1 300px',
           }}
-        >
-          <Image
-            src="/assets/caozinho_banho.png"
-            alt="Foto de cachorro recebendo cuidados no Pet Shop Vila Pet Brasil em Betim"
-            fill
-            priority
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center',
-            }}
-          />
-        </div>
+        />
         <div
           className="hero-text-container"
           style={{
