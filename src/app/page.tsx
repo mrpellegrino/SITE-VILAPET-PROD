@@ -191,51 +191,60 @@ export default async function HomePage() {
       <Navbar />
 
       {/* ===== HERO SECTION ===== */}
+      {/* SVG clip-path definition for organic left edge */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <clipPath id="organic-hero-clip" clipPathUnits="objectBoundingBox">
+            <path d="M 0.2,0 C 0.05,0.05 0,0.22 0,0.5 C 0,0.78 0.05,0.95 0.2,1 L 1,1 L 1,0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
       <section
         id="chamada"
         style={{
-          position: 'relative',
           display: 'flex',
+          flexDirection: 'row-reverse',
+          justifyContent: 'space-between',
           alignItems: 'center',
           paddingTop: '7rem',
           minHeight: '100vh',
+          flexWrap: 'wrap',
           overflow: 'hidden',
         }}
       >
-        <Image
-          src="/assets/caozinho_banho.png"
-          alt="Foto de cachorro recebendo cuidados no Pet Shop Vila Pet Brasil em Betim"
-          fill
-          priority
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center',
-            zIndex: 0,
-          }}
-        />
-        {/* Gradient overlay so text stays readable */}
         <div
           style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(to right, rgba(255,255,255,0.96) 40%, rgba(255,255,255,0.5) 65%, rgba(255,255,255,0) 85%)',
-            zIndex: 1,
+            flex: '1 1 300px',
+            width: '55%',
+            minWidth: '300px',
+            position: 'relative',
+            alignSelf: 'stretch',
+            minHeight: '500px',
+            clipPath: 'url(#organic-hero-clip)',
           }}
-        />
+        >
+          <Image
+            src="/assets/caozinho_banho.png"
+            alt="Foto de cachorro recebendo cuidados no Pet Shop Vila Pet Brasil em Betim"
+            fill
+            priority
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+          />
+        </div>
         <div
           className="hero-text-container"
           style={{
-            position: 'relative',
-            zIndex: 2,
-            width: '50%',
+            width: '45%',
             minWidth: '300px',
             paddingTop: '2rem',
             paddingBottom: '2rem',
-            paddingLeft: 'clamp(1.5rem, 5vw, 5rem)',
-            paddingRight: '2rem',
             display: 'flex',
             flexDirection: 'column',
+            flex: '1 1 300px',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column' }}>
