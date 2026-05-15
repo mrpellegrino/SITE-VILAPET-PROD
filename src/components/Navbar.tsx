@@ -20,6 +20,7 @@ export default function Navbar() {
     ['Tosas', 'section-tosas'],
     ['Outros Serviços', 'outros-servicos'],
     ['Unidades', 'unidades'],
+    ['Trabalhe Conosco', 'trabalhe-conosco'],
   ];
 
   return (

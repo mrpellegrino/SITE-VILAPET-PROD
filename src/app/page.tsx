@@ -6,6 +6,7 @@ import PromoCardsSection, { PromoCard } from '@/components/PromoCardsSection';
 import GaleriaSlider, { GalleryPhoto } from '@/components/GaleriaSlider';
 import AvaliacoesSection, { PlaceReview } from '@/components/AvaliacoesSection';
 import FaqAccordion from '@/components/FaqAccordion';
+import WorkWithUsSection from '@/components/WorkWithUsSection';
 
 const WA_CONTACT =
   'https://api.whatsapp.com/send/?phone=5531975166552&text=Ol%C3%A1,+Vila+Pet+Brasil.+Vim+pelo+seu+an%C3%BAncio+no+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es';
@@ -902,6 +903,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ===== TRABALHE CONOSCO ===== */}
+      <WorkWithUsSection />
 
       {/* ===== FAQ ===== */}
       <FaqAccordion />
