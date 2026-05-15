@@ -6,6 +6,7 @@ import PromoCardsSection, { PromoCard } from '@/components/PromoCardsSection';
 import GaleriaSlider, { GalleryPhoto } from '@/components/GaleriaSlider';
 import AvaliacoesSection, { PlaceReview } from '@/components/AvaliacoesSection';
 import FaqAccordion from '@/components/FaqAccordion';
+import WorkWithUsSection from '@/components/WorkWithUsSection';
 
 const WA_CONTACT =
   'https://api.whatsapp.com/send/?phone=5531975166552&text=Ol%C3%A1,+Vila+Pet+Brasil.+Vim+pelo+seu+an%C3%BAncio+no+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es';
@@ -904,129 +905,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== TRABALHE CONOSCO ===== */}
-      <section
-        id="trabalhe-conosco"
-        className="careers-section"
-      >
-        <div className="careers-content">
-          <div>
-            <h2
-              style={{
-                fontFamily: 'PoppinsStrong, sans-serif',
-                fontWeight: 400,
-                fontSize: 'clamp(28px, 4vw, 40px)',
-                lineHeight: '1.3',
-                color: '#3D3D3D',
-                marginBottom: '12px',
-              }}
-            >
-              Trabalhe Conosco
-            </h2>
-            <p
-              style={{
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 400,
-                fontSize: '16px',
-                lineHeight: '26px',
-                color: '#555',
-                maxWidth: '560px',
-                marginBottom: '24px',
-              }}
-            >
-              Quer fazer parte do time Vila Pet Brasil? Envie seu currículo e
-              suas informações para avaliarmos oportunidades em aberto.
-            </p>
-          </div>
-
-          <form
-            action="mailto:contato@vilapetbrasil.com.br?subject=Curr%C3%ADculo%20-%20Trabalhe%20Conosco"
-            method="post"
-            encType="multipart/form-data"
-            className="careers-form"
-          >
-            <div className="careers-form-grid">
-              <label className="careers-field">
-                <span>Nome completo*</span>
-                <input
-                  type="text"
-                  name="nome"
-                  required
-                  placeholder="Digite seu nome"
-                />
-              </label>
-
-              <label className="careers-field">
-                <span>Telefone*</span>
-                <input
-                  type="tel"
-                  name="telefone"
-                  required
-                  placeholder="(31) 99999-9999"
-                />
-              </label>
-
-              <label className="careers-field">
-                <span>E-mail*</span>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="voce@email.com"
-                />
-              </label>
-
-              <label className="careers-field">
-                <span>Área de interesse*</span>
-                <input
-                  type="text"
-                  name="area_de_interesse"
-                  required
-                  placeholder="Ex.: Banho e tosa"
-                />
-              </label>
-            </div>
-
-            <label className="careers-field">
-              <span>Currículo (PDF, DOC ou DOCX)*</span>
-              <input
-                type="file"
-                name="curriculo"
-                accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                required
-              />
-            </label>
-
-            <label className="careers-field">
-              <span>Mensagem</span>
-              <textarea
-                name="mensagem"
-                rows={4}
-                placeholder="Conte um pouco sobre sua experiência"
-              />
-            </label>
-
-            <button
-              type="submit"
-              className="vpb-button"
-              style={{
-                width: '100%',
-                maxWidth: '320px',
-                background: '#EA528B',
-                marginTop: '8px',
-              }}
-            >
-              Enviar currículo
-            </button>
-          </form>
-          <p className="careers-helper-text">
-            Se preferir, envie diretamente para{' '}
-            <a href="mailto:contato@vilapetbrasil.com.br">
-              contato@vilapetbrasil.com.br
-            </a>
-            .
-          </p>
-        </div>
-      </section>
+      <WorkWithUsSection />
 
       {/* ===== FAQ ===== */}
       <FaqAccordion />
