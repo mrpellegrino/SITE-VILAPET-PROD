@@ -21,7 +21,13 @@ const readTextField = (data: FormData, key: string) => {
   return typeof field === 'string' ? field.trim() : '';
 };
 
-const hasValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const isValidEmailFormat = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+const getFileExtension = (filename: string) => {
+  const lastDot = filename.lastIndexOf('.');
+  if (lastDot === -1 || lastDot === filename.length - 1) return '';
+  return filename.slice(lastDot + 1).toLowerCase();
+};
 
 export async function POST(request: Request) {
   try {
@@ -55,7 +61,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!hasValidEmail(email)) {
+    if (!isValidEmailFormat(email)) {
       return NextResponse.json({ message: 'Informe um e-mail válido.' }, { status: 400 });
     }
 
@@ -67,7 +73,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'O arquivo deve ter no máximo 5MB.' }, { status: 400 });
     }
 
-    const extension = curriculo.name.split('.').pop()?.toLowerCase() ?? '';
+    const extension = getFileExtension(curriculo.name);
     const mimeType = curriculo.type.toLowerCase();
     if (!ALLOWED_EXTENSIONS.has(extension)) {
       return NextResponse.json(
@@ -76,7 +82,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (mimeType && !ALLOWED_MIME_TYPES.has(mimeType)) {
+    if (!mimeType || !ALLOWED_MIME_TYPES.has(mimeType)) {
       return NextResponse.json(
         { message: 'Envie o currículo em PDF, DOC ou DOCX.' },
         { status: 400 }
