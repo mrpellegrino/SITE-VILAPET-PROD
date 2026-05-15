@@ -121,12 +121,7 @@ export default function WorkWithUsSection() {
 
           <label className="careers-field">
             <span>Currículo (PDF, DOC ou DOCX)*</span>
-            <input
-              type="file"
-              name="curriculo"
-              accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              required
-            />
+            <input type="file" name="curriculo" accept=".pdf,.doc,.docx" required />
           </label>
 
           <label className="careers-field">

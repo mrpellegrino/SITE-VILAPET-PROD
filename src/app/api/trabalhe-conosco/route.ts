@@ -21,7 +21,18 @@ const readTextField = (data: FormData, key: string) => {
   return typeof field === 'string' ? field.trim() : '';
 };
 
-const isValidEmailFormat = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const isValidEmailFormat = (email: string) => {
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) return false;
+  const [localPart, domainPart] = email.split('@');
+  if (!localPart || !domainPart) return false;
+  if (localPart.startsWith('.') || localPart.endsWith('.') || localPart.includes('..')) {
+    return false;
+  }
+  if (domainPart.startsWith('.') || domainPart.endsWith('.') || domainPart.includes('..')) {
+    return false;
+  }
+  return true;
+};
 
 const getFileExtension = (filename: string) => {
   const lastDot = filename.lastIndexOf('.');
@@ -65,8 +76,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Informe um e-mail válido.' }, { status: 400 });
     }
 
-    if (!(curriculo instanceof File) || curriculo.size === 0) {
+    if (!(curriculo instanceof File)) {
       return NextResponse.json({ message: 'Anexe seu currículo para continuar.' }, { status: 400 });
+    }
+
+    if (curriculo.size === 0) {
+      return NextResponse.json(
+        { message: 'O arquivo está vazio. Envie um currículo válido.' },
+        { status: 400 }
+      );
     }
 
     if (curriculo.size > MAX_FILE_SIZE_BYTES) {
@@ -77,14 +95,14 @@ export async function POST(request: Request) {
     const mimeType = curriculo.type.toLowerCase();
     if (!ALLOWED_EXTENSIONS.has(extension)) {
       return NextResponse.json(
-        { message: 'Envie o currículo em PDF, DOC ou DOCX.' },
+        { message: 'A extensão do arquivo deve ser PDF, DOC ou DOCX.' },
         { status: 400 }
       );
     }
 
     if (!mimeType || !ALLOWED_MIME_TYPES.has(mimeType)) {
       return NextResponse.json(
-        { message: 'Envie o currículo em PDF, DOC ou DOCX.' },
+        { message: 'O tipo do arquivo é inválido. Envie um currículo em PDF, DOC ou DOCX.' },
         { status: 400 }
       );
     }
