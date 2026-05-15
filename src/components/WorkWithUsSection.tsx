@@ -155,7 +155,7 @@ export default function WorkWithUsSection() {
           </button>
         </form>
         <p className="careers-helper-text">
-          Se preferir, envie diretamente para{' '}
+          Se preferir, envie diretamente para:{' '}
           <a href="mailto:contato@vilapetbrasil.com.br">contato@vilapetbrasil.com.br</a>.
         </p>
         {feedback && (

@@ -69,7 +69,14 @@ export async function POST(request: Request) {
 
     const extension = curriculo.name.split('.').pop()?.toLowerCase() ?? '';
     const mimeType = curriculo.type.toLowerCase();
-    if (!ALLOWED_MIME_TYPES.has(mimeType) && !ALLOWED_EXTENSIONS.has(extension)) {
+    if (!ALLOWED_EXTENSIONS.has(extension)) {
+      return NextResponse.json(
+        { message: 'Envie o currículo em PDF, DOC ou DOCX.' },
+        { status: 400 }
+      );
+    }
+
+    if (mimeType && !ALLOWED_MIME_TYPES.has(mimeType)) {
       return NextResponse.json(
         { message: 'Envie o currículo em PDF, DOC ou DOCX.' },
         { status: 400 }
