@@ -21,16 +21,14 @@ const readTextField = (data: FormData, key: string) => {
   return typeof field === 'string' ? field.trim() : '';
 };
 
-const hasValidEmail = (email: string) =>
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const hasValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 export async function POST(request: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
     const toEmail = process.env.RECRUITMENT_EMAIL ?? 'contato@vilapetbrasil.com.br';
     const fromEmail =
-      process.env.RECRUITMENT_FROM_EMAIL ??
-      'Vila Pet Brasil <onboarding@resend.dev>';
+      process.env.RECRUITMENT_FROM_EMAIL ?? 'Vila Pet Brasil <onboarding@resend.dev>';
 
     if (!apiKey) {
       return NextResponse.json(
@@ -58,41 +56,27 @@ export async function POST(request: Request) {
     }
 
     if (!hasValidEmail(email)) {
-      return NextResponse.json(
-        { message: 'Informe um e-mail válido.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: 'Informe um e-mail válido.' }, { status: 400 });
     }
 
     if (!(curriculo instanceof File) || curriculo.size === 0) {
-      return NextResponse.json(
-        { message: 'Anexe seu currículo para continuar.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: 'Anexe seu currículo para continuar.' }, { status: 400 });
     }
 
     if (curriculo.size > MAX_FILE_SIZE_BYTES) {
-      return NextResponse.json(
-        { message: 'O arquivo deve ter no máximo 5MB.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: 'O arquivo deve ter no máximo 5MB.' }, { status: 400 });
     }
 
     const extension = curriculo.name.split('.').pop()?.toLowerCase() ?? '';
     const mimeType = curriculo.type.toLowerCase();
-    if (
-      !ALLOWED_MIME_TYPES.has(mimeType) &&
-      !ALLOWED_EXTENSIONS.has(extension)
-    ) {
+    if (!ALLOWED_MIME_TYPES.has(mimeType) && !ALLOWED_EXTENSIONS.has(extension)) {
       return NextResponse.json(
         { message: 'Envie o currículo em PDF, DOC ou DOCX.' },
         { status: 400 }
       );
     }
 
-    const attachment = Buffer.from(await curriculo.arrayBuffer()).toString(
-      'base64'
-    );
+    const attachment = Buffer.from(await curriculo.arrayBuffer()).toString('base64');
 
     const html = `
       <h2>Novo currículo recebido</h2>
@@ -140,8 +124,7 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json(
       {
-        message:
-          'Erro inesperado ao enviar currículo. Tente novamente em alguns instantes.',
+        message: 'Erro inesperado ao enviar currículo. Tente novamente em alguns instantes.',
       },
       { status: 500 }
     );

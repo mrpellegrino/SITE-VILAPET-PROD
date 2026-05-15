@@ -26,23 +26,17 @@ export default function WorkWithUsSection() {
       if (!response.ok) {
         setStatus('error');
         setFeedback(
-          data?.message ??
-            'Não foi possível enviar seu currículo agora. Tente novamente.'
+          data?.message ?? 'Não foi possível enviar seu currículo agora. Tente novamente.'
         );
         return;
       }
 
       setStatus('success');
-      setFeedback(
-        data?.message ??
-          'Currículo enviado com sucesso! Obrigado pelo seu interesse.'
-      );
+      setFeedback(data?.message ?? 'Currículo enviado com sucesso! Obrigado pelo seu interesse.');
       form.reset();
     } catch {
       setStatus('error');
-      setFeedback(
-        'Erro ao enviar currículo. Tente novamente em alguns instantes.'
-      );
+      setFeedback('Erro ao enviar currículo. Tente novamente em alguns instantes.');
     }
   };
 
@@ -73,16 +67,12 @@ export default function WorkWithUsSection() {
               marginBottom: '24px',
             }}
           >
-            Quer fazer parte do time Vila Pet Brasil? Envie seu currículo e
-            suas informações para avaliarmos oportunidades em aberto.
+            Quer fazer parte do time Vila Pet Brasil? Envie seu currículo e suas informações para
+            avaliarmos oportunidades em aberto.
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="careers-form"
-          encType="multipart/form-data"
-        >
+        <form onSubmit={handleSubmit} className="careers-form" encType="multipart/form-data">
           <div className="careers-form-grid">
             <label className="careers-field">
               <span>Nome completo*</span>
@@ -166,10 +156,7 @@ export default function WorkWithUsSection() {
         </form>
         <p className="careers-helper-text">
           Se preferir, envie diretamente para{' '}
-          <a href="mailto:contato@vilapetbrasil.com.br">
-            contato@vilapetbrasil.com.br
-          </a>
-          .
+          <a href="mailto:contato@vilapetbrasil.com.br">contato@vilapetbrasil.com.br</a>.
         </p>
         {feedback && (
           <p
