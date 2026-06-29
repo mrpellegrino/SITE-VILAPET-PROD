@@ -301,6 +301,17 @@ export default async function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PT7TLLVF');`
+          }}
+        />
+        {/* End Google Tag Manager */}
         {/* Google Ads Global Site Tag */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10855972679" />
         <script dangerouslySetInnerHTML={{ __html: `
@@ -326,6 +337,16 @@ export default async function RootLayout({
         />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PT7TLLVF"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
         <script
           type="module"
