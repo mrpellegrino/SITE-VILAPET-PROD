@@ -116,109 +116,77 @@ async function fetchPlaceRating(): Promise<{ rating: number; reviewCount: number
 
 // ─── JSON-LD ──────────────────────────────────────────────────────────────────
 function buildLocalBusinessJsonLd(rating: number, reviewCount: number) {
-  return {
-  '@context': 'https://schema.org',
-  '@type': 'PetStore',
-  '@id': `${SITE_URL}/#petstore`,
-  name: 'Vila Pet Brasil',
-  description:
-    'Pet Shop especializado em Banho e Tosa com água mineralizada e ionizada, tosa profissional, Táxi Dog e produtos para cães, gatos e coelhos em Betim, MG.',
-  url: SITE_URL,
-  telephone: '+55-31-97516-6552',
-  email: 'contato@vilapetbrasil.com.br',
-  image: `${SITE_URL}/assets/vila-pet-logo-05.webp`,
-  logo: `${SITE_URL}/assets/logo5.svg`,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Rua Osvaldo Rodrigues Pereira, 540',
-    addressLocality: 'Betim',
-    addressRegion: 'MG',
-    postalCode: '32673-120',
-    addressCountry: 'BR',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: -19.9676,
-    longitude: -44.1984,
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '08:00',
-      closes: '18:00',
-    },
-  ],
-  priceRange: '$$',
-  currenciesAccepted: 'BRL',
-  paymentAccepted: 'Cash, Credit Card, Debit Card, PIX',
-  areaServed: {
-    '@type': 'City',
-    name: 'Betim',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Serviços Vila Pet Brasil',
-    itemListElement: [
+  const baseData = {
+    '@context': 'https://schema.org',
+    '@type': 'PetStore',
+    description:
+      'Pet Shop especializado em Banho e Tosa com água mineralizada e ionizada, tosa profissional, Táxi Dog e produtos para cães, gatos e coelhos em Betim, MG.',
+    url: SITE_URL,
+    telephone: '+55-31-97516-6552',
+    email: 'contato@vilapetbrasil.com.br',
+    image: `${SITE_URL}/assets/vila-pet-logo-05.webp`,
+    logo: `${SITE_URL}/assets/logo5.svg`,
+    openingHoursSpecification: [
       {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Banho — A Essência',
-          description:
-            'Banho com shampoos hipoalergênicos e duchas mineralizadoras para a filtragem da água, proporcionando uma experiência relaxante para o seu pet.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Line Grooming',
-          description:
-            'Tosa realizada com uso de tesoura em cães e gatos, mantendo toda a beleza e charme da pelagem do seu pet.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Basic Grooming',
-          description:
-            'Tosa feita na máquina em cães e gatos, para quem prefere a praticidade dos pelos curtos.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Feline Basic',
-          description:
-            'Banho e Tosa Higiênica completos para gatos, de forma segura e adaptada para diminuir o estresse do animal.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Táxi Dog',
-          description:
-            'Serviço de busca e entrega do seu pet com total segurança e conforto na região de Betim, MG.',
-        },
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '08:00',
+        closes: '18:00',
       },
     ],
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: String(rating),
-    bestRating: '5',
-    worstRating: '1',
-    reviewCount: String(reviewCount),
-  },
-  sameAs: [
-    'https://www.instagram.com/vilapetbrasil',
-    `https://api.whatsapp.com/send/?phone=5531975166552`,
-  ],
+    priceRange: '$$',
+    currenciesAccepted: 'BRL',
+    paymentAccepted: 'Cash, Credit Card, Debit Card, PIX',
+    areaServed: {
+      '@type': 'City',
+      name: 'Betim',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: String(rating),
+      bestRating: '5',
+      worstRating: '1',
+      reviewCount: String(reviewCount),
+    },
+    sameAs: [
+      'https://www.instagram.com/vilapetbrasil',
+      `https://api.whatsapp.com/send/?phone=5531975166552`,
+    ],
   };
+
+  return [
+    {
+      ...baseData,
+      '@id': `${SITE_URL}/#unidade-espirito-santo`,
+      name: 'Vila Pet Brasil - Unidade Espírito Santo',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Rua Osvaldo Rodrigues Pereira, 540',
+        addressLocality: 'Betim',
+        addressRegion: 'MG',
+        postalCode: '32673-120',
+        addressCountry: 'BR',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -19.9676,
+        longitude: -44.1984,
+      },
+    },
+    {
+      ...baseData,
+      '@id': `${SITE_URL}/#unidade-jardim-da-cidade`,
+      name: 'Vila Pet Brasil - Unidade Jardim da Cidade',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Av. Edmeia Matos Lazzarotti, 2418',
+        addressLocality: 'Betim',
+        addressRegion: 'MG',
+        postalCode: '32604-270',
+        addressCountry: 'BR',
+      },
+    }
+  ];
 }
 
 const faqJsonLd = {
@@ -301,6 +269,7 @@ export default async function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        <link rel="llms" href="/llms.txt" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
