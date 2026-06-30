@@ -7,6 +7,7 @@ import GaleriaSlider, { GalleryPhoto } from '@/components/GaleriaSlider';
 import AvaliacoesSection, { PlaceReview } from '@/components/AvaliacoesSection';
 import FaqAccordion from '@/components/FaqAccordion';
 import WorkWithUsSection from '@/components/WorkWithUsSection';
+import MapTabs from '@/components/MapTabs';
 
 const WA_CONTACT =
   'https://api.whatsapp.com/send/?phone=5531975166552&text=Ol%C3%A1,+Vila+Pet+Brasil.+Vim+pelo+seu+an%C3%BAncio+no+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es';
@@ -550,15 +551,7 @@ export default async function HomePage() {
       />
 
       {/* ===== GOOGLE MAP ===== */}
-      <div className="google-map">
-        <iframe
-          title="Localização Vila Pet Brasil - Rua Osvaldo Rodrigues Pereira 540, Betim MG"
-          style={{ border: 0, width: '100%', height: '450px' }}
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&q=Rua+Osvaldo+Rodrigues+Pereira+540+Bairro+Espirito+Santo+Betim+MG"
-          allowFullScreen
-          loading="lazy"
-        />
-      </div>
+      <MapTabs />
 
       {/* ===== OUTROS SERVIÇOS ===== */}
       <section
@@ -840,16 +833,15 @@ export default async function HomePage() {
               minWidth: '260px',
               padding: '2rem',
               borderRadius: '16px',
-              background: '#f5f5f5',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
+              background: '#fdf5ee',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
               textAlign: 'left',
-              opacity: 0.85,
             }}
           >
             <div
               style={{
                 display: 'inline-block',
-                background: '#aaa',
+                background: '#EA528B',
                 color: '#fff',
                 fontSize: '0.75rem',
                 fontWeight: 700,
@@ -860,7 +852,7 @@ export default async function HomePage() {
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
-              EM BREVE
+              ABERTA
             </div>
             <h3
               style={{
@@ -871,35 +863,39 @@ export default async function HomePage() {
                 fontFamily: 'PoppinsStrong, sans-serif',
               }}
             >
-              Segunda Unidade
+              Unidade Jardim da Cidade
             </h3>
             <p
               style={{
-                color: '#777',
+                color: '#555',
                 fontSize: '0.95rem',
                 lineHeight: '1.6',
                 marginBottom: '1rem',
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
-              Betim, MG
+              Av. Edmeia Matos Lazzarotti, 2418
               <br />
-              Em breve mais detalhes!
+              Jardim da Cidade — Betim, MG
             </p>
-            <span
+            <a
+              href={WA_AGENDAR}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: 'inline-block',
-                background: '#ddd',
-                color: '#999',
+                background: '#EA528B',
+                color: '#fff',
                 padding: '0.6rem 1.2rem',
                 borderRadius: '8px',
                 fontSize: '0.9rem',
                 fontWeight: 600,
+                textDecoration: 'none',
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
-              Em breve
-            </span>
+              Agendar horário
+            </a>
           </div>
         </div>
       </section>
@@ -1017,7 +1013,7 @@ export default async function HomePage() {
               opacity: 0.8,
             }}
           >
-            Endereço:
+            Nossas Unidades:
           </div>
           <p
             style={{
@@ -1027,9 +1023,12 @@ export default async function HomePage() {
               lineHeight: '24px',
               textAlign: 'left',
               color: 'white',
+              marginBottom: '12px',
             }}
           >
-            Rua Osvaldo Rodrigues Pereira, 540,
+            <strong>Unidade Espírito Santo:</strong><br />
+            Rua Osvaldo Rodrigues Pereira, 540<br />
+            Betim — MG
           </p>
           <p
             style={{
@@ -1041,18 +1040,8 @@ export default async function HomePage() {
               color: 'white',
             }}
           >
-            Bairro Espírito Santo
-          </p>
-          <p
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '24px',
-              textAlign: 'left',
-              color: 'white',
-            }}
-          >
+            <strong>Unidade Jardim da Cidade:</strong><br />
+            Av. Edmeia Matos Lazzarotti, 2418<br />
             Betim — MG
           </p>
         </address>
