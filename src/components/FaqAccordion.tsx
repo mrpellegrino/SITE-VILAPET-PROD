@@ -17,10 +17,9 @@ const faqItems: FAQItem[] = [
     question: 'Vocês oferecem serviço de Táxi Dog em Betim?',
     answer: (
       <>
-        Sim! Sabemos que a sua rotina é corrida. Por isso, a Vila Pet Brasil
-        oferece o serviço de <strong>Táxi Dog</strong> na região de Betim/MG
-        para buscar e levar seu pet com total segurança e conforto para nossos
-        serviços de estética animal.
+        Sim! Sabemos que a sua rotina é corrida. Por isso, a Vila Pet Brasil oferece o serviço de{' '}
+        <strong>Táxi Dog</strong> na região de Betim/MG para buscar e levar seu pet com total
+        segurança e conforto para nossos serviços de estética animal.
       </>
     ),
   },
@@ -28,13 +27,11 @@ const faqItems: FAQItem[] = [
     question: 'Vocês fazem banho para retirada de carrapatos e pulgas?',
     answer: (
       <>
-        Não realizamos banhos antiparasitários. Por segurança dos demais animais
-        atendidos, não aceitamos pets com infestação de carrapatos ou pulgas,
-        pois o risco de contaminação cruzada é alto. Caso seja encontrado{' '}
-        <strong>algum parasita isolado</strong> durante o atendimento, a família
-        é avisada imediatamente. Se houver <strong>infestação</strong>, o pet é
-        devolvido para que o tutor providencie o tratamento antiparasitário
-        adequado antes de retornar.
+        Não realizamos banhos antiparasitários. Por segurança dos demais animais atendidos, não
+        aceitamos pets com infestação de carrapatos ou pulgas, pois o risco de contaminação cruzada
+        é alto. Caso seja encontrado <strong>algum parasita isolado</strong> durante o atendimento,
+        a família é avisada imediatamente. Se houver <strong>infestação</strong>, o pet é devolvido
+        para que o tutor providencie o tratamento antiparasitário adequado antes de retornar.
       </>
     ),
   },
@@ -43,14 +40,10 @@ const faqItems: FAQItem[] = [
     answer: (
       <>
         O filhote pode ser atendido{' '}
-        <strong>
-          21 dias após a última dose do protocolo inicial de vacinas
-        </strong>
-        . Em geral, os filhotes tomam 3 doses de vacina, então o banho só é
-        liberado 21 dias depois da terceira dose. Esse prazo existe para
-        garantir a segurança do seu pet, já que o sistema imunológico precisa
-        estar completamente protegido antes do contato com o ambiente do pet
-        shop.
+        <strong>21 dias após a última dose do protocolo inicial de vacinas</strong>. Em geral, os
+        filhotes tomam 3 doses de vacina, então o banho só é liberado 21 dias depois da terceira
+        dose. Esse prazo existe para garantir a segurança do seu pet, já que o sistema imunológico
+        precisa estar completamente protegido antes do contato com o ambiente do pet shop.
       </>
     ),
   },
@@ -59,9 +52,9 @@ const faqItems: FAQItem[] = [
     answer: (
       <>
         Sim. O nosso atendimento não se limita apenas aos cães. Oferecemos o{' '}
-        <strong>Feline Basic</strong> (Banho e Tosa Higiênica completos para
-        gatos) e banho especializado para <strong>coelhos</strong>, sempre de
-        maneira segura e adaptada para diminuir o estresse do animal.
+        <strong>Feline Basic</strong> (Banho e Tosa Higiênica completos para gatos) e banho
+        especializado para <strong>coelhos</strong>, sempre de maneira segura e adaptada para
+        diminuir o estresse do animal.
       </>
     ),
   },
@@ -167,8 +160,8 @@ export default function FaqAccordion() {
           fontFamily: 'Poppins, sans-serif',
         }}
       >
-        Conteúdo validado pela equipe técnica especializada da Vila Pet Brasil -
-        Atualizado em Março/2026.
+        Conteúdo validado pela equipe técnica especializada da Vila Pet Brasil - Atualizado em
+        Março/2026.
       </p>
     </section>
   );

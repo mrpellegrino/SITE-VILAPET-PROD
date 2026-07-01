@@ -64,8 +64,7 @@ export default function PromoCardsSection({ cards }: { cards: PromoCard[] }) {
             marginBottom: '40px',
           }}
         >
-          Aproveite nossas promoções exclusivas e cuide do seu pet com o melhor
-          preço!
+          Aproveite nossas promoções exclusivas e cuide do seu pet com o melhor preço!
         </p>
         <div
           style={{
@@ -106,9 +105,7 @@ export default function PromoCardsSection({ cards }: { cards: PromoCard[] }) {
               >
                 {card.badge}
               </div>
-              <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>
-                {card.emoji}
-              </div>
+              <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>{card.emoji}</div>
               <h3
                 style={{
                   color: '#3E3089',
@@ -131,10 +128,7 @@ export default function PromoCardsSection({ cards }: { cards: PromoCard[] }) {
               >
                 {card.description}
               </p>
-              <a
-                href="?wa=promo"
-                target="_self"
-              >
+              <a href="?wa=promo" target="_self">
                 <button
                   style={{
                     background: card.buttonColor,

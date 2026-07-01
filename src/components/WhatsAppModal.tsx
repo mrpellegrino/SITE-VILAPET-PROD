@@ -28,11 +28,12 @@ const WhatsAppModalContent = () => {
 
   const getMessage = (unit: string) => {
     const baseMessages: Record<string, string> = {
-      contato: 'Olá, Vila Pet Brasil. Vim pelo seu anúncio no Google e gostaria de mais informações.',
+      contato:
+        'Olá, Vila Pet Brasil. Vim pelo seu anúncio no Google e gostaria de mais informações.',
       banhos: 'Olá Vila Pet! Gostaria de saber mais sobre os banhos!',
       tosas: 'Olá Vila Pet! Gostaria de saber mais sobre as tosas!',
       agendar: 'Olá Vila Pet! Gostaria de agendar um horário.',
-      promo: 'Olá, Vila Pet Brasil. Gostaria de aproveitar a promoção!'
+      promo: 'Olá, Vila Pet Brasil. Gostaria de aproveitar a promoção!',
     };
     const msg = baseMessages[wa || 'contato'] || baseMessages.contato;
     return encodeURIComponent(`${msg} (Unidade: ${unit})`);
@@ -50,28 +51,32 @@ const WhatsAppModalContent = () => {
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.6)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 99999,
-      padding: '20px'
-    }}>
-      <div style={{
-        backgroundColor: '#fff',
-        borderRadius: '16px',
-        padding: '30px',
-        maxWidth: '400px',
-        width: '100%',
-        boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-        position: 'relative'
-      }}>
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 99999,
+        padding: '20px',
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: '#fff',
+          borderRadius: '16px',
+          padding: '30px',
+          maxWidth: '400px',
+          width: '100%',
+          boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+          position: 'relative',
+        }}
+      >
         <button
           onClick={closeModal}
           style={{
@@ -83,29 +88,33 @@ const WhatsAppModalContent = () => {
             fontSize: '28px',
             lineHeight: '1',
             cursor: 'pointer',
-            color: '#999'
+            color: '#999',
           }}
         >
           &times;
         </button>
-        
-        <h2 style={{
-          fontFamily: 'PoppinsStrong, sans-serif',
-          fontSize: '22px',
-          color: '#333',
-          marginBottom: '10px',
-          textAlign: 'center',
-          fontWeight: 700
-        }}>
+
+        <h2
+          style={{
+            fontFamily: 'PoppinsStrong, sans-serif',
+            fontSize: '22px',
+            color: '#333',
+            marginBottom: '10px',
+            textAlign: 'center',
+            fontWeight: 700,
+          }}
+        >
           Escolha a Unidade
         </h2>
-        <p style={{
-          fontFamily: 'Poppins, sans-serif',
-          fontSize: '14px',
-          color: '#666',
-          marginBottom: '25px',
-          textAlign: 'center'
-        }}>
+        <p
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: '14px',
+            color: '#666',
+            marginBottom: '25px',
+            textAlign: 'center',
+          }}
+        >
           Para qual unidade do Vila Pet Brasil você deseja enviar mensagem?
         </p>
 
@@ -126,10 +135,10 @@ const WhatsAppModalContent = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '10px',
-              transition: 'opacity 0.2s'
+              transition: 'opacity 0.2s',
             }}
-            onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
-            onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+            onMouseOver={(e) => (e.currentTarget.style.opacity = '0.9')}
+            onMouseOut={(e) => (e.currentTarget.style.opacity = '1')}
           >
             📍 Unidade Espírito Santo
           </button>
@@ -150,10 +159,10 @@ const WhatsAppModalContent = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '10px',
-              transition: 'opacity 0.2s'
+              transition: 'opacity 0.2s',
             }}
-            onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
-            onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+            onMouseOver={(e) => (e.currentTarget.style.opacity = '0.9')}
+            onMouseOut={(e) => (e.currentTarget.style.opacity = '1')}
           >
             📍 Unidade Jardim da Cidade
           </button>

@@ -6,8 +6,24 @@ const MapTabs = () => {
   const [activeTab, setActiveTab] = useState<'espirito-santo' | 'jardim-cidade'>('espirito-santo');
 
   return (
-    <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 20px', marginBottom: '40px' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
+    <div
+      style={{
+        width: '100%',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 20px',
+        marginBottom: '40px',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '10px',
+          marginBottom: '20px',
+          flexWrap: 'wrap',
+        }}
+      >
         <button
           onClick={() => setActiveTab('espirito-santo')}
           style={{
@@ -42,7 +58,13 @@ const MapTabs = () => {
         </button>
       </div>
 
-      <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+      <div
+        style={{
+          borderRadius: '16px',
+          overflow: 'hidden',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+        }}
+      >
         {activeTab === 'espirito-santo' ? (
           <iframe
             title="Localização Vila Pet Brasil - Espírito Santo"

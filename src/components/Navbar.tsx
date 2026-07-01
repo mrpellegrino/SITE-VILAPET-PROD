@@ -28,8 +28,7 @@ export default function Navbar() {
         style={{
           width: '100%',
           zIndex: 2,
-          background:
-            'linear-gradient(rgba(234,82,139,0.15) 0%, rgba(234,82,139,0.15) 105.42%)',
+          background: 'linear-gradient(rgba(234,82,139,0.15) 0%, rgba(234,82,139,0.15) 105.42%)',
           boxShadow: 'rgba(0,0,0,0.1) 2px 4px 10px',
           backdropFilter: 'blur(20px)',
           position: 'fixed',
@@ -128,12 +127,7 @@ export default function Navbar() {
               padding: '8px',
             }}
           >
-            <Image
-              src="/assets/menuBotao.svg"
-              alt="Abrir Menu"
-              width={32}
-              height={32}
-            />
+            <Image src="/assets/menuBotao.svg" alt="Abrir Menu" width={32} height={32} />
           </button>
         </div>
       </header>
@@ -180,12 +174,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 style={{ background: 'none', border: 'none', cursor: 'pointer' }}
               >
-                <Image
-                  src="/assets/botaoativo.svg"
-                  alt="Fechar Menu"
-                  width={25}
-                  height={25}
-                />
+                <Image src="/assets/botaoativo.svg" alt="Fechar Menu" width={25} height={25} />
               </button>
             </div>
             <ul

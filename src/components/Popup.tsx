@@ -6,13 +6,7 @@ import Image from 'next/image';
 const WA_PROMO = '?wa=promo';
 
 const WhatsAppIcon = () => (
-  <svg
-    width="28"
-    height="28"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -40,9 +34,7 @@ export default function Popup() {
           height={480}
           style={{ width: '100%', height: 'auto', display: 'block' }}
         />
-        <div
-          style={{ padding: '1rem', display: 'flex', justifyContent: 'center' }}
-        >
+        <div style={{ padding: '1rem', display: 'flex', justifyContent: 'center' }}>
           <a href={WA_PROMO} target="_blank" rel="noopener noreferrer">
             <button className="vpb-button" style={{ width: '280px' }}>
               <WhatsAppIcon />

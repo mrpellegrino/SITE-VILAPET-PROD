@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
-import Popup from '@/components/Popup';
+// import Popup from '@/components/Popup';
 import PromoCardsSection, { PromoCard } from '@/components/PromoCardsSection';
 import GaleriaSlider, { GalleryPhoto } from '@/components/GaleriaSlider';
 import AvaliacoesSection, { PlaceReview } from '@/components/AvaliacoesSection';
@@ -13,19 +13,13 @@ import WhatsAppModal from '@/components/WhatsAppModal';
 const WA_CONTACT = '?wa=contato';
 const WA_BANHOS = '?wa=banhos';
 const WA_TOSAS = '?wa=tosas';
-const WA_AGENDAR = '?wa=agendar';
+// const WA_AGENDAR = '?wa=agendar';
 
 const WA_AGENDAR_ES = `https://wa.me/5531975166552?text=${encodeURIComponent('Olá Vila Pet! Gostaria de agendar um horário. (Unidade: Espírito Santo)')}`;
 const WA_AGENDAR_JC = `https://wa.me/553135318518?text=${encodeURIComponent('Olá Vila Pet! Gostaria de agendar um horário. (Unidade: Jardim da Cidade)')}`;
 
 const WhatsAppIcon = () => (
-  <svg
-    width="28"
-    height="28"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -61,16 +55,14 @@ const fallbackReviews: PlaceReview[] = [
   },
   {
     name: 'Fernanda Oliveira',
-    avatar:
-      'https://lh3.googleusercontent.com/a/default-user=w75-h75-p-rp-mo-br100',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=w75-h75-p-rp-mo-br100',
     rating: 5,
     text: 'Melhor pet shop de Betim! Meu Golden ficou lindo após o banho Intense Repair Pro. Profissionais muito atenciosos e o ambiente é super limpo e organizado. Voltarei sempre!',
     date: 'há 3 semanas',
   },
   {
     name: 'Ricardo Mendes',
-    avatar:
-      'https://lh3.googleusercontent.com/a/default-user=w75-h75-p-rp-mo-br100',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=w75-h75-p-rp-mo-br100',
     rating: 5,
     text: 'Excelente serviço! Levei minha gata para o Feline Basic e ela foi tratada com muito cuidado. Equipe super profissional e carinhosa com os animais. Recomendo demais!',
     date: 'há 1 semana',
@@ -136,22 +128,17 @@ async function fetchReviews(): Promise<{
   rating: number;
   totalReviews: number | null;
 }> {
-  if (!GOOGLE_API_KEY)
-    return { reviews: fallbackReviews, rating: 5, totalReviews: null };
+  if (!GOOGLE_API_KEY) return { reviews: fallbackReviews, rating: 5, totalReviews: null };
   try {
-    const res = await fetch(
-      `https://places.googleapis.com/v1/places/${PLACE_ID}`,
-      {
-        headers: {
-          'X-Goog-Api-Key': GOOGLE_API_KEY,
-          'X-Goog-FieldMask': 'reviews,rating,userRatingCount',
-          'Accept-Language': 'pt-BR',
-        },
-        next: { revalidate: 2592000 },
-      }
-    );
-    if (!res.ok)
-      return { reviews: fallbackReviews, rating: 5, totalReviews: null };
+    const res = await fetch(`https://places.googleapis.com/v1/places/${PLACE_ID}`, {
+      headers: {
+        'X-Goog-Api-Key': GOOGLE_API_KEY,
+        'X-Goog-FieldMask': 'reviews,rating,userRatingCount',
+        'Accept-Language': 'pt-BR',
+      },
+      next: { revalidate: 2592000 },
+    });
+    if (!res.ok) return { reviews: fallbackReviews, rating: 5, totalReviews: null };
     const data = await res.json();
     const reviews: PlaceReview[] = (data.reviews ?? [])
       .filter((r: any) => r.rating === 5)
@@ -243,8 +230,7 @@ export default async function HomePage() {
                 margin: 0,
               }}
             >
-              A pet do seu{' '}
-              <span style={{ color: '#EA528B' }}>Pet!</span>
+              A pet do seu <span style={{ color: '#EA528B' }}>Pet!</span>
             </p>
             <h1
               style={{
@@ -286,10 +272,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               style={{ marginTop: '16px', marginBottom: '16px' }}
             >
-              <button
-                className="vpb-button"
-                style={{ width: '100%', maxWidth: '327px' }}
-              >
+              <button className="vpb-button" style={{ width: '100%', maxWidth: '327px' }}>
                 <WhatsAppIcon />
                 Entre em contato
               </button>
@@ -374,13 +357,11 @@ export default async function HomePage() {
                 textAlign: 'left',
               }}
             >
-              No nosso petshop, o banho para seu pet é um momento de cuidado e
-              carinho, realizado com a melhor linha de shampoos do mercado pet.
-              Utilizamos fórmulas hipoalergênicas, especialmente desenvolvidas
-              para nutrir e proteger, proporcionando uma experiência relaxante e
-              segura para o seu pet. Além do uso de duchas mineralizadoras para
-              a filtragem da água utilizada no banho do seu filho de quatro
-              patas.
+              No nosso petshop, o banho para seu pet é um momento de cuidado e carinho, realizado
+              com a melhor linha de shampoos do mercado pet. Utilizamos fórmulas hipoalergênicas,
+              especialmente desenvolvidas para nutrir e proteger, proporcionando uma experiência
+              relaxante e segura para o seu pet. Além do uso de duchas mineralizadoras para a
+              filtragem da água utilizada no banho do seu filho de quatro patas.
             </p>
             <p
               style={{
@@ -393,8 +374,8 @@ export default async function HomePage() {
                 marginTop: '12px',
               }}
             >
-              Aqui no Vila Pet Brasil, cada detalhe é pensado para que seu
-              companheiro se sinta confortável e renovado.
+              Aqui no Vila Pet Brasil, cada detalhe é pensado para que seu companheiro se sinta
+              confortável e renovado.
             </p>
           </div>
           <div style={{ width: '100%', marginTop: '40px' }}>
@@ -566,12 +547,12 @@ export default async function HomePage() {
           margin: '40px 80px 50px',
         }}
       >
-          <a
-            href={WA_CONTACT}
-            target="_self"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', width: '100%' }}
-          >
+        <a
+          href={WA_CONTACT}
+          target="_self"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none', width: '100%' }}
+        >
           <h2
             style={{
               fontFamily: 'PoppinsStrong, sans-serif',
@@ -982,10 +963,7 @@ export default async function HomePage() {
                 color: 'white',
               }}
             >
-              <a
-                href="/politica-de-privacidade"
-                style={{ textDecoration: 'none', color: 'white' }}
-              >
+              <a href="/politica-de-privacidade" style={{ textDecoration: 'none', color: 'white' }}>
                 Política de Privacidade
               </a>
             </li>
@@ -1067,8 +1045,10 @@ export default async function HomePage() {
               marginBottom: '12px',
             }}
           >
-            <strong>Unidade Espírito Santo:</strong><br />
-            Rua Osvaldo Rodrigues Pereira, 540<br />
+            <strong>Unidade Espírito Santo:</strong>
+            <br />
+            Rua Osvaldo Rodrigues Pereira, 540
+            <br />
             Betim — MG
           </p>
           <p
@@ -1081,8 +1061,10 @@ export default async function HomePage() {
               color: 'white',
             }}
           >
-            <strong>Unidade Jardim da Cidade:</strong><br />
-            Av. Edmeia Matos Lazzarotti, 2418<br />
+            <strong>Unidade Jardim da Cidade:</strong>
+            <br />
+            Av. Edmeia Matos Lazzarotti, 2418
+            <br />
             Betim — MG
           </p>
         </address>

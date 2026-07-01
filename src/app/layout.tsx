@@ -93,16 +93,13 @@ async function fetchPlaceRating(): Promise<{ rating: number; reviewCount: number
   const placeId = process.env.GOOGLE_PLACE_ID ?? 'ChIJeWKoXlLDpgARKv9CqRkhQGw';
   if (!apiKey) return { rating: 5, reviewCount: 87 };
   try {
-    const res = await fetch(
-      `https://places.googleapis.com/v1/places/${placeId}`,
-      {
-        headers: {
-          'X-Goog-Api-Key': apiKey,
-          'X-Goog-FieldMask': 'rating,userRatingCount',
-        },
-        next: { revalidate: 2592000 }, // 30 dias
-      }
-    );
+    const res = await fetch(`https://places.googleapis.com/v1/places/${placeId}`, {
+      headers: {
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': 'rating,userRatingCount',
+      },
+      next: { revalidate: 2592000 }, // 30 dias
+    });
     if (!res.ok) return { rating: 5, reviewCount: 87 };
     const data = await res.json();
     return {
@@ -190,7 +187,7 @@ function buildLocalBusinessJsonLd(rating: number, reviewCount: number) {
         postalCode: '32604-270',
         addressCountry: 'BR',
       },
-    }
+    },
   ];
 }
 
@@ -282,18 +279,22 @@ export default async function RootLayout({
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PT7TLLVF');`
+})(window,document,'script','dataLayer','GTM-PT7TLLVF');`,
           }}
         />
         {/* End Google Tag Manager */}
         {/* Google Ads Global Site Tag */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10855972679" />
-        <script dangerouslySetInnerHTML={{ __html: `
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'AW-10855972679');
-        `}} />
+        `,
+          }}
+        />
         {/* JSON-LD — LocalBusiness */}
         <script
           type="application/ld+json"

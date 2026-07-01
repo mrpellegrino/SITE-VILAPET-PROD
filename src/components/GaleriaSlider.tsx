@@ -27,9 +27,7 @@ export default function GaleriaSlider({ photos }: { photos: GalleryPhoto[] }) {
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    setSliderPos(
-      Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100))
-    );
+    setSliderPos(Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100)));
   };
 
   if (photos.length === 0) return null;
@@ -96,12 +94,7 @@ export default function GaleriaSlider({ photos }: { photos: GalleryPhoto[] }) {
               userSelect: 'none',
             }}
           >
-            <Image
-              src={current.src}
-              alt={current.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-            />
+            <Image src={current.src} alt={current.alt} fill style={{ objectFit: 'cover' }} />
             <div
               style={{
                 position: 'absolute',
@@ -236,12 +229,7 @@ export default function GaleriaSlider({ photos }: { photos: GalleryPhoto[] }) {
               boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
             }}
           >
-            <Image
-              src={current.src}
-              alt={current.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-            />
+            <Image src={current.src} alt={current.alt} fill style={{ objectFit: 'cover' }} />
             <div
               style={{
                 position: 'absolute',
@@ -281,10 +269,7 @@ export default function GaleriaSlider({ photos }: { photos: GalleryPhoto[] }) {
               onClick={() => setActiveIndex(index)}
               style={{
                 padding: 0,
-                border:
-                  index === activeIndex
-                    ? '3px solid #EA528B'
-                    : '3px solid transparent',
+                border: index === activeIndex ? '3px solid #EA528B' : '3px solid transparent',
                 borderRadius: '10px',
                 overflow: 'hidden',
                 cursor: 'pointer',
@@ -296,12 +281,7 @@ export default function GaleriaSlider({ photos }: { photos: GalleryPhoto[] }) {
                 background: 'none',
               }}
             >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                style={{ objectFit: 'cover' }}
-              />
+              <Image src={photo.src} alt={photo.alt} fill style={{ objectFit: 'cover' }} />
               {photo.beforeSrc && (
                 <div
                   style={{
