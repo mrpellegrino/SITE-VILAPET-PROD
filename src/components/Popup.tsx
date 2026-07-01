@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-const WA_PROMO =
-  'https://api.whatsapp.com/send/?phone=5531975166552&text=Ol%C3%A1,+Vila+Pet+Brasil.+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+campanha+de+primeiro+banho.';
+const WA_PROMO = '?wa=promo';
 
 const WhatsAppIcon = () => (
   <svg

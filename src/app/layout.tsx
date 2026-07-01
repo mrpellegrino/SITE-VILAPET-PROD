@@ -177,6 +177,11 @@ function buildLocalBusinessJsonLd(rating: number, reviewCount: number) {
       ...baseData,
       '@id': `${SITE_URL}/#unidade-jardim-da-cidade`,
       name: 'Vila Pet Brasil - Unidade Jardim da Cidade',
+      telephone: '+55-31-3531-8518',
+      sameAs: [
+        'https://www.instagram.com/vilapetbrasil',
+        'https://api.whatsapp.com/send/?phone=553135318518',
+      ],
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Av. Edmeia Matos Lazzarotti, 2418',

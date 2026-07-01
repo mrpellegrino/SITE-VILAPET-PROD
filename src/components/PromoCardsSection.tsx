@@ -132,9 +132,8 @@ export default function PromoCardsSection({ cards }: { cards: PromoCard[] }) {
                 {card.description}
               </p>
               <a
-                href={card.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="?wa=promo"
+                target="_self"
               >
                 <button
                   style={{

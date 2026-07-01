@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-const WA_CONTACT =
-  'https://api.whatsapp.com/send/?phone=5531975166552&text=Ol%C3%A1,+Vila+Pet+Brasil.+Vim+pelo+seu+an%C3%BAncio+no+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es';
+const WA_CONTACT = '?wa=contato';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -98,21 +97,22 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <a href="tel:+5531975166552">
+            <a href={WA_CONTACT} target="_self">
               <button
                 style={{
                   cursor: 'pointer',
-                  width: '230px',
+                  width: '200px',
                   height: '48px',
                   borderRadius: '10px',
-                  backgroundColor: '#CB60B3',
+                  backgroundColor: '#EA528B',
                   border: 'none',
                   fontSize: '18px',
                   color: 'white',
                   fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 600,
                 }}
               >
-                ☏ (31) 97516-6552
+                💬 Fale Conosco
               </button>
             </a>
           </div>

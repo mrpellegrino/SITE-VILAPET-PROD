@@ -8,15 +8,15 @@ import AvaliacoesSection, { PlaceReview } from '@/components/AvaliacoesSection';
 import FaqAccordion from '@/components/FaqAccordion';
 import WorkWithUsSection from '@/components/WorkWithUsSection';
 import MapTabs from '@/components/MapTabs';
+import WhatsAppModal from '@/components/WhatsAppModal';
 
-const WA_CONTACT =
-  'https://api.whatsapp.com/send/?phone=5531975166552&text=Ol%C3%A1,+Vila+Pet+Brasil.+Vim+pelo+seu+an%C3%BAncio+no+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es';
-const WA_BANHOS =
-  'https://wa.me/5531975166552?text=Ol%C3%A1+Vila+Pet%21+Gost%C3%A1ria+de+saber+mais+sobre+os+banhos%21';
-const WA_TOSAS =
-  'https://wa.me/5531975166552?text=Ol%C3%A1+Vila+Pet%21+Gost%C3%A1ria+de+saber+mais+sobre+as+tosas%21';
-const WA_AGENDAR =
-  'https://wa.me/5531975166552?text=Ol%C3%A1+Vila+Pet%21+Gostaria+de+agendar+um+hor%C3%A1rio.';
+const WA_CONTACT = '?wa=contato';
+const WA_BANHOS = '?wa=banhos';
+const WA_TOSAS = '?wa=tosas';
+const WA_AGENDAR = '?wa=agendar';
+
+const WA_AGENDAR_ES = `https://wa.me/5531975166552?text=${encodeURIComponent('Olá Vila Pet! Gostaria de agendar um horário. (Unidade: Espírito Santo)')}`;
+const WA_AGENDAR_JC = `https://wa.me/553135318518?text=${encodeURIComponent('Olá Vila Pet! Gostaria de agendar um horário. (Unidade: Jardim da Cidade)')}`;
 
 const WhatsAppIcon = () => (
   <svg
@@ -189,8 +189,9 @@ export default async function HomePage() {
         overflowX: 'hidden',
       }}
     >
-      <Popup />
+      {/* <Popup /> */}
       <Navbar />
+      <WhatsAppModal />
 
       {/* ===== HERO SECTION ===== */}
       <section
@@ -281,7 +282,7 @@ export default async function HomePage() {
             </p>
             <a
               href={WA_CONTACT}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
               style={{ marginTop: '16px', marginBottom: '16px' }}
             >
@@ -397,7 +398,7 @@ export default async function HomePage() {
             </p>
           </div>
           <div style={{ width: '100%', marginTop: '40px' }}>
-            <a href={WA_BANHOS} target="_blank" rel="noopener noreferrer">
+            <a href={WA_BANHOS} target="_self" rel="noopener noreferrer">
               <button
                 className="vpb-button"
                 style={{
@@ -517,7 +518,7 @@ export default async function HomePage() {
               justifyContent: 'center',
             }}
           >
-            <a href={WA_TOSAS} target="_blank" rel="noopener noreferrer">
+            <a href={WA_TOSAS} target="_self" rel="noopener noreferrer">
               <button className="vpb-button" style={{ width: '327px' }}>
                 <WhatsAppIcon />
                 Marque horário para uma tosa
@@ -565,12 +566,12 @@ export default async function HomePage() {
           margin: '40px 80px 50px',
         }}
       >
-        <a
-          href={WA_CONTACT}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none', width: '100%' }}
-        >
+          <a
+            href={WA_CONTACT}
+            target="_self"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', width: '100%' }}
+          >
           <h2
             style={{
               fontFamily: 'PoppinsStrong, sans-serif',
@@ -808,24 +809,44 @@ export default async function HomePage() {
               <br />
               Bairro Espírito Santo — Betim, MG
             </p>
-            <a
-              href={WA_AGENDAR}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                background: '#EA528B',
-                color: '#fff',
-                padding: '0.6rem 1.2rem',
-                borderRadius: '8px',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                fontFamily: 'Poppins, sans-serif',
-              }}
-            >
-              Agendar horário
-            </a>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <a
+                href={WA_AGENDAR_ES}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  background: '#EA528B',
+                  color: '#fff',
+                  padding: '0.6rem 1.2rem',
+                  borderRadius: '8px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
+              >
+                Agendar horário
+              </a>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Rua+Osvaldo+Rodrigues+Pereira%2C+540+-+Esp%C3%ADrito+Santo%2C+Betim+-+MG"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  background: '#3E3089',
+                  color: '#fff',
+                  padding: '0.6rem 1.2rem',
+                  borderRadius: '8px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
+              >
+                Como Chegar
+              </a>
+            </div>
           </div>
           <div
             style={{
@@ -878,24 +899,44 @@ export default async function HomePage() {
               <br />
               Jardim da Cidade — Betim, MG
             </p>
-            <a
-              href={WA_AGENDAR}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                background: '#EA528B',
-                color: '#fff',
-                padding: '0.6rem 1.2rem',
-                borderRadius: '8px',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                fontFamily: 'Poppins, sans-serif',
-              }}
-            >
-              Agendar horário
-            </a>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <a
+                href={WA_AGENDAR_JC}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  background: '#EA528B',
+                  color: '#fff',
+                  padding: '0.6rem 1.2rem',
+                  borderRadius: '8px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
+              >
+                Agendar horário
+              </a>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Av.+Edmeia+Matos+Lazzarotti%2C+2418+-+Jardim+da+Cidade%2C+Betim+-+MG"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  background: '#3E3089',
+                  color: '#fff',
+                  padding: '0.6rem 1.2rem',
+                  borderRadius: '8px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
+              >
+                Como Chegar
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1051,7 +1092,7 @@ export default async function HomePage() {
       <a
         href={WA_CONTACT}
         aria-label="Fale conosco no WhatsApp"
-        target="_blank"
+        target="_self"
         rel="noopener noreferrer"
         style={{
           position: 'fixed',
