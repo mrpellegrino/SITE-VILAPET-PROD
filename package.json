@@ -2,6 +2,9 @@
   "name": "vilapetbrasil",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "rocketCritical": {
     "dependencies": [
       "next",
@@ -41,7 +44,7 @@
   "scripts": {
     "dev": "next dev -p 4028",
     "build": "next build",
-    "start": "next dev -p 4028",
+    "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
